@@ -1,2 +1,2 @@
-# Simple-Chart-for-Analytics
-Simple Chart for Analytics
+# SimpleCharts
+Simple Chart for Analytics in Xamarin Forms
