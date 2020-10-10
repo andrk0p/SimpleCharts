@@ -23,9 +23,7 @@ namespace SimpleCharts.ViewModels
             {
                 Charts.Add(new Chart() { Value = new Random().Next(0, 1000) });
                 i++;
-
             }
-
             foreach (var a in Charts)
                 a.Height = a?.Value == 0 ? 0 : a?.Value * 100 / MaxHeight;
         }

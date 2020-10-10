@@ -2,7 +2,8 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="SimpleCharts.MainPage"
-             x:Name="thisMainPage">
+             x:Name="thisMainPage"
+             BackgroundColor="Gray">
 
     <Grid VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
         <Grid.RowDefinitions>
@@ -32,14 +33,16 @@
             </CollectionView.ItemsLayout>
             <CollectionView.ItemTemplate>
                 <DataTemplate>
-                    <Grid>
+                    <Grid x:Name="chartGrid" RowSpacing="0">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="*"/>
                             <RowDefinition Height="auto"/>
                         </Grid.RowDefinitions>
                         <BoxView Grid.Row="0" HeightRequest="{Binding Height}" 
                                  BackgroundColor="{Binding BackgroundColor}" VerticalOptions="End"/>
-                        <Label Grid.Row="1" Text="{Binding Value}" HorizontalOptions="CenterAndExpand"/>
+                        <Grid Grid.Row="1" BackgroundColor="Gray" HorizontalOptions="Fill">
+                            <Label Text="{Binding Value}" HorizontalOptions="CenterAndExpand"/>
+                        </Grid>
                         <Grid.GestureRecognizers>
                             <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
                         </Grid.GestureRecognizers>
