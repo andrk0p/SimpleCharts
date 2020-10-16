@@ -12,16 +12,10 @@ namespace Sample
 {
     public partial class MainPage : ContentPage
     {
-        private MainViewModel mainViewModel;
         public MainPage()
         {
-            BindingContext = mainViewModel = new MainViewModel();
-            mainViewModel.Notify += Update;
+            BindingContext = new MainViewModel();
             InitializeComponent();
-        }
-
-        public void Update(Chart chart)
-        {
         }
     }
 }

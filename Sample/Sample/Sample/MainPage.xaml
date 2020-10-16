@@ -23,18 +23,19 @@
         <ScrollView Grid.Row="1" 
                     Orientation="Horizontal"
                     VerticalOptions="StartAndExpand"
-                    HorizontalScrollBarVisibility="Never">
-            <StackLayout x:Name="ChartsList"
-                         BindableLayout.ItemsSource="{Binding Charts}"
-                         Orientation="Horizontal"
-                         HeightRequest="{Binding MaxHeight}"
-                         Spacing="10">
+                    HorizontalScrollBarVisibility="Never"
+                    Margin="20">
+            <templates:Charts BindableLayout.ItemsSource="{Binding Charts}" HeightRequest="{Binding MaxHeight}">
                 <BindableLayout.ItemTemplate>
                     <DataTemplate>
-                        <templates:ChartTemplate ColumnSize="{Binding Height}"/>
+                        <templates:Chart Value="{Binding Value}"
+                                         MinColor="{Binding MinColor}"
+                                         MaxColor="{Binding MaxColor}"
+                                         MinAllowedValue="400"
+                                         IsAnimation="True"/>
                     </DataTemplate>
                 </BindableLayout.ItemTemplate>
-            </StackLayout>
+            </templates:Charts>
         </ScrollView>
         
         <Button Grid.Row="2" Text="Change Charts" Command="{Binding ChangeCommand}"

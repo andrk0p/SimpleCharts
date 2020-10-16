@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Grid xmlns="http://xamarin.com/schemas/2014/forms"
       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-      x:Class="SimpleCharts.Templates.ChartTemplate"
+      x:Class="SimpleCharts.Templates.Chart"
       RowSpacing="0">
     
     <Grid.RowDefinitions>
@@ -9,9 +9,8 @@
         <RowDefinition Height="auto"/>
     </Grid.RowDefinitions>
 
-    <BoxView Grid.Row="0" x:Name="ChartColumn" HeightRequest="{Binding Height}" 
-             BackgroundColor="{Binding BackgroundColor}" VerticalOptions="End"/>
+    <BoxView Grid.Row="0" x:Name="ChartColumn" VerticalOptions="End"/>
     <Grid Grid.Row="1" BackgroundColor="White" HorizontalOptions="Fill">
-        <Label Text="{Binding Value}" HorizontalOptions="CenterAndExpand"/>
+        <Label x:Name="ChartValue" HorizontalOptions="CenterAndExpand"/>
     </Grid>
 </Grid>
