@@ -1,5 +1,14 @@
 # Simple Charts for Xamarin Forms
 
+| Property | Type | Description |
+|----------------|:---------:|----------------:|
+| Value | double | By default, it is zero. |
+| IsAnimation | bool | Specifies whether columns will change their height with animation. |
+| IsMinAllowed | bool | If you have a critical value, this field includes the ability to add multiple colors and the minimum allowed value. |
+| MinColor | Color | Columns that are lower than the minimum allowed value will be displayed in this color. |
+| MaxColor | Color | Columns that are higher than the minimum allowed value will be displayed in this color. |
+| MinAllowedValue | double | Minimum allowed value. |
+
 ## Support platforms
 
 - [x] Android
