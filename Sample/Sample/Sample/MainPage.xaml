@@ -46,8 +46,8 @@
                 <BindableLayout.ItemTemplate>
                     <DataTemplate>
                         <templates:Chart Value="{Binding Value}"
-                                         MinColor="{Binding MinColor}"
-                                         MaxColor="{Binding MaxColor}"
+                                         MinColor="Gray"
+                                         MaxColor="Black"
                                          MinAllowedValue="250">
                             <Grid Grid.Row="1" BackgroundColor="White" HorizontalOptions="Fill">
                                 <Label Text="{Binding Value}" HorizontalOptions="CenterAndExpand" TextColor="Black"/>
