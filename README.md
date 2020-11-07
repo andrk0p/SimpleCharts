@@ -8,7 +8,7 @@
 
 ## Sample
 
-'''
+ ```
  <templates:Charts BindableLayout.ItemsSource="{Binding Charts}" HeightRequest="{Binding MaxHeight}"
                    Spacing="10">
                 <BindableLayout.ItemTemplate>
@@ -24,7 +24,6 @@
                     </DataTemplate>
                 </BindableLayout.ItemTemplate>
  </templates:Charts>
-'''
+```
 
 ![Xamarin forms charts](https://github.com/somewv/SimpleCharts/blob/main/SimpleChart.PNG)
-![Xamarin forms charts](https://github.com/somewv/SimpleCharts/blob/main/SimpleChartsAndroid.jpg)
