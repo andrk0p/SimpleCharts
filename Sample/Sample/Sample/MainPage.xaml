@@ -41,15 +41,18 @@
                     VerticalOptions="StartAndExpand"
                     HorizontalScrollBarVisibility="Never"
                     Margin="20">
-            <templates:Charts BindableLayout.ItemsSource="{Binding Charts}" HeightRequest="{Binding MaxHeight}">
+            <templates:Charts BindableLayout.ItemsSource="{Binding Charts}" HeightRequest="{Binding MaxHeight}"
+                              Spacing="10">
                 <BindableLayout.ItemTemplate>
                     <DataTemplate>
                         <templates:Chart Value="{Binding Value}"
                                          MinColor="{Binding MinColor}"
                                          MaxColor="{Binding MaxColor}"
-                                         MinAllowedValue="250"
-                                         IsAnimation="True"
-                                         IsMinAllowed="True"/>
+                                         MinAllowedValue="250">
+                            <Grid Grid.Row="1" BackgroundColor="White" HorizontalOptions="Fill">
+                                <Label Text="{Binding Value}" HorizontalOptions="CenterAndExpand" TextColor="Black"/>
+                            </Grid>
+                        </templates:Chart>
                     </DataTemplate>
                 </BindableLayout.ItemTemplate>
             </templates:Charts>

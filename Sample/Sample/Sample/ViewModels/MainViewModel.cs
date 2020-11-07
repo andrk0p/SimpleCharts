@@ -12,17 +12,19 @@ namespace Sample.ViewModels
 {
     public class MainViewModel
     {
-        public ICommand ChangeCommand => new Command(async () => UpdateChart());
+        public ICommand ChangeCommand => new Command(() => UpdateChart());
         public double MaxHeight => 300;
         public ObservableCollection<Chart> Charts { get; set; } = new ObservableCollection<Chart>();
         public MainViewModel()
         {
             var i = 0;
-            while (i < 8)
+            while (i < 29)
             {
-                Charts.Add(new Chart() { Value = new Random().Next(0, 500) });
+                var a = new Chart() { Value = new Random().Next(0, 500) };
+                Charts.Add(a);
                 i++;
             }
+            UpdateChart();
         }
         private void UpdateChart()
         {

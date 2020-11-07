@@ -10,7 +10,4 @@
     </Grid.RowDefinitions>
 
     <BoxView Grid.Row="0" x:Name="ChartColumn" VerticalOptions="End"/>
-    <Grid Grid.Row="1" BackgroundColor="White" HorizontalOptions="Fill">
-        <Label x:Name="ChartValue" HorizontalOptions="CenterAndExpand"/>
-    </Grid>
 </Grid>

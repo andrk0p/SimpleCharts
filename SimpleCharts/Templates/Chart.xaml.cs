@@ -25,7 +25,8 @@ namespace SimpleCharts.Templates
         }
         private async void SetColumn(double value)
         {
-            ChartValue.Text = value.ToString();
+            //ChartValue.IsVisible = IsLabelVisible;
+            //ChartValue.Text = value.ToString();
             double changedValue = SetHeight(value);
             double height = ChartColumn.HeightRequest;
             while (height != changedValue)
@@ -36,11 +37,11 @@ namespace SimpleCharts.Templates
                 else
                     height = changedValue;
                 ChartColumn.HeightRequest = height;
+                if (IsMinAllowed)
+                    ChartColumn.BackgroundColor = value < MinAllowedValue ? MinColor : MaxColor;
+                else
+                    ChartColumn.BackgroundColor = Color.GreenYellow;
             }
-            if (IsMinAllowed)
-                ChartColumn.BackgroundColor = value < MinAllowedValue ? MinColor : MaxColor;
-            else
-                ChartColumn.BackgroundColor = Color.GreenYellow;
         }
         private double SetHeight(double value)
         {
@@ -151,6 +152,26 @@ namespace SimpleCharts.Templates
             var ctrl = (Chart)bindable;
             ctrl.IsMinAllowed = (bool)newValue;
         }
+        //public static readonly BindableProperty IsLabelVisibleProperty =
+        //BindableProperty.Create("IsLabelVisible", typeof(bool), typeof(Chart), true,
+        //    BindingMode.TwoWay, propertyChanged: IsLabelVisibleChanging);
+        //public bool IsLabelVisible
+        //{
+        //    set
+        //    {
+        //        SetValue(IsLabelVisibleProperty, value);
+        //    }
+        //    get
+        //    {
+        //        return (bool)GetValue(IsLabelVisibleProperty);
+        //    }
+        //}
+        //private static void IsLabelVisibleChanging(BindableObject bindable, object oldValue, object newValue)
+        //{
+        //    var ctrl = (Chart)bindable;
+        //    ctrl.IsLabelVisible = (bool)newValue;
+        //}
+        
         public Chart()
         {
             InitializeComponent();
