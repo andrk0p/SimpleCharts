@@ -1,11 +1,4 @@
-﻿using Sample.Models;
-using Sample.ViewModels;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Sample.ViewModels;
 using Xamarin.Forms;
 
 namespace Sample
@@ -14,8 +7,12 @@ namespace Sample
     {
         public MainPage()
         {
-            BindingContext = new MainViewModel();
             InitializeComponent();
+        }
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            BindingContext = new MainViewModel();
         }
     }
 }

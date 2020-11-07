@@ -20,7 +20,7 @@ namespace Sample.ViewModels
             var i = 0;
             while (i < 8)
             {
-                Charts.Add(new Chart() { Value = new Random().Next(0, 1000) });
+                Charts.Add(new Chart() { Value = new Random().Next(0, 500) });
                 i++;
             }
         }
@@ -28,7 +28,7 @@ namespace Sample.ViewModels
         {
             foreach (var a in Charts)
             {
-                a.Value = new Random().Next(0, 1000);
+                a.Value = new Random().Next(0, 500);
                 a?.Update();
             }
         }

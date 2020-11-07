@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
-
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -41,7 +37,10 @@ namespace SimpleCharts.Templates
                     height = changedValue;
                 ChartColumn.HeightRequest = height;
             }
-            ChartColumn.BackgroundColor = value < MinAllowedValue ? Color.Red : Color.GreenYellow;//MinColor : MaxColor;
+            if (IsMinAllowed)
+                ChartColumn.BackgroundColor = value < MinAllowedValue ? MinColor : MaxColor;
+            else
+                ChartColumn.BackgroundColor = Color.GreenYellow;
         }
         private double SetHeight(double value)
         {
@@ -81,17 +80,17 @@ namespace SimpleCharts.Templates
         {
             set
             {
-                SetValue(MinColorProperty, value);
+                SetValue(MaxColorProperty, value);
             }
             get
             {
-                return (Color)GetValue(MinColorProperty);
+                return (Color)GetValue(MaxColorProperty);
             }
         }
         private static void MaxColorChanging(BindableObject bindable, object oldValue, object newValue)
         {
             var ctrl = (Chart)bindable;
-            ctrl.MinColor = (Color)newValue;
+            ctrl.MaxColor = (Color)newValue;
         }
         public static readonly BindableProperty MinAllowedValueProperty =
         BindableProperty.Create("MinAllowedValue", typeof(double), typeof(Chart), 0.0d,
@@ -132,6 +131,25 @@ namespace SimpleCharts.Templates
         {
             var ctrl = (Chart)bindable;
             ctrl.IsAnimation = (bool)newValue;
+        }
+        public static readonly BindableProperty IsMinAllowedProperty =
+        BindableProperty.Create("IsMinAllowed", typeof(bool), typeof(Chart), true,
+            BindingMode.TwoWay, propertyChanged: IsMinAllowedChanging);
+        public bool IsMinAllowed
+        {
+            set
+            {
+                SetValue(IsMinAllowedProperty, value);
+            }
+            get
+            {
+                return (bool)GetValue(IsMinAllowedProperty);
+            }
+        }
+        private static void IsMinAllowedChanging(BindableObject bindable, object oldValue, object newValue)
+        {
+            var ctrl = (Chart)bindable;
+            ctrl.IsMinAllowed = (bool)newValue;
         }
         public Chart()
         {

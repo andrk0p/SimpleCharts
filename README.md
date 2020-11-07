@@ -1,2 +1,4 @@
 # SimpleCharts
-Simple Chart for Analytics in Xamarin Forms
+Simple Chart for Xamarin Forms
+
+![Xamarin forms charts](http://url/to/img.png)

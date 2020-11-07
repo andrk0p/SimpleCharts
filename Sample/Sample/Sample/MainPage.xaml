@@ -9,6 +9,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
             <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
@@ -29,16 +30,32 @@
                 <BindableLayout.ItemTemplate>
                     <DataTemplate>
                         <templates:Chart Value="{Binding Value}"
+                                         IsAnimation="False"
+                                         IsMinAllowed="False"/>
+                    </DataTemplate>
+                </BindableLayout.ItemTemplate>
+            </templates:Charts>
+        </ScrollView>
+        <ScrollView Grid.Row="2" 
+                    Orientation="Horizontal"
+                    VerticalOptions="StartAndExpand"
+                    HorizontalScrollBarVisibility="Never"
+                    Margin="20">
+            <templates:Charts BindableLayout.ItemsSource="{Binding Charts}" HeightRequest="{Binding MaxHeight}">
+                <BindableLayout.ItemTemplate>
+                    <DataTemplate>
+                        <templates:Chart Value="{Binding Value}"
                                          MinColor="{Binding MinColor}"
                                          MaxColor="{Binding MaxColor}"
-                                         MinAllowedValue="400"
-                                         IsAnimation="True"/>
+                                         MinAllowedValue="250"
+                                         IsAnimation="True"
+                                         IsMinAllowed="True"/>
                     </DataTemplate>
                 </BindableLayout.ItemTemplate>
             </templates:Charts>
         </ScrollView>
         
-        <Button Grid.Row="2" Text="Change Charts" Command="{Binding ChangeCommand}"
+        <Button Grid.Row="3" Text="Change Charts" Command="{Binding ChangeCommand}"
                 VerticalOptions="StartAndExpand" 
                 HorizontalOptions="CenterAndExpand"
                 Padding="20"
