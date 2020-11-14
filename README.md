@@ -1,5 +1,7 @@
 # Simple Charts for Xamarin Forms
 
+[![NuGet version](https://badge.fury.io/nu/SimpleCharts.svg)](https://badge.fury.io/nu/SimpleCharts)
+
 | Property | Type | Description |
 |----------------|:---------:|----------------:|
 | Value | double | By default, it is zero. |
